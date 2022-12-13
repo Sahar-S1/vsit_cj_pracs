@@ -1,0 +1,45 @@
+@startuml
+
+class Account {
+  -bal: double
+  -accnum: int
+
+  +Account(int a)
+  +deposit(double sum)
+  +withdraw(double sum)
+  +getBalance()
+  +getAccountNumber()
+  +toString()
+  +print()
+}
+
+class SavingsAccount {
+  -interest: double
+
+  +SavingsAccount(int a, double interest)
+  +addInterest()
+}
+
+class CurrentAccount {
+  -limit: double
+
+  +CurrentAccount(int a, double limit)
+  +getLimit()
+  +inOverdraft()
+  +withdraw(double sum)
+}
+
+class Bank {
+  +accounts: ArrayList<Account>
+
+  +update()
+  +openAccount(Account account)
+  +closeAccount(int accnum)
+  +payDividend(double amount)
+}
+
+Account <|-- SavingsAccount
+Account <|-- CurrentAccount
+Bank o-- Account
+
+@enduml
