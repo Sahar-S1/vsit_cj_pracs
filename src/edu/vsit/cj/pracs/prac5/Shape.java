@@ -27,7 +27,7 @@ public abstract class Shape implements Comparable<Shape> {
    * 
    */
   public Shape() {
-    // TODO: Implement constructor of the Shape class
+    this.id = ++Shape.numShapes;
   }
 
   /**
@@ -36,7 +36,7 @@ public abstract class Shape implements Comparable<Shape> {
    * @return numShapes The total number of shapes created so far
    */
   public int getNumShapes() {
-    // TODO: Implement the getNumShapes method
+    return Shape.numShapes;
   }
 
   /**
@@ -45,7 +45,7 @@ public abstract class Shape implements Comparable<Shape> {
    * @return id The ID of generated 3D object
    */
   public int getId() {
-    // TODO: Implement the getId method
+    return this.id;
   }
 
   /**
@@ -87,8 +87,19 @@ public abstract class Shape implements Comparable<Shape> {
    * @return -1 if *this* comes before s, 0 if they are equal or 1 otherwise
    */
   public int compareTo(Shape s) {
-    // TODO: Implement the compareTo method for returning the Shape objects in
-    // ascending order of their SurfaceAreas
+    if (this.getSurfaceArea() < s.getSurfaceArea())
+      return -1;
+
+    if (this.getSurfaceArea() > s.getSurfaceArea())
+      return 1;
+
+    if (this.getVolume() < s.getVolume())
+      return -1;
+
+    if (this.getVolume() > s.getVolume())
+      return 1;
+
+    return 0;
   }
 
   /**
@@ -99,7 +110,8 @@ public abstract class Shape implements Comparable<Shape> {
    *         "Cuboid:\tID = 7\tSurface Area = 94.00\tVolume = 60.00"
    */
   public String toString() {
-    // TODO: Implement the ToString method for displaying the Info of 3D Shape
-    // objects
+    return String.format(
+        "%s\tID = %d\tSurface Area = %.2f\tVolume = %.2f",
+        getShapeType(), getId(), getSurfaceArea(), getVolume());
   }
 }

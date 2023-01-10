@@ -13,7 +13,7 @@ public class Cube extends Cuboid {
      * @param edge the value for each edge of the cube
      */
     public Cube(double edge) {
-        // TODO: Complete implementation
+        super(edge, edge, edge);
     }
 
     /**
@@ -24,6 +24,6 @@ public class Cube extends Cuboid {
      * @return shape of the object here "Cube"
      */
     public String getShapeType() {
-        // TODO: Complete implementation
+        return "Cube";
     }
 }

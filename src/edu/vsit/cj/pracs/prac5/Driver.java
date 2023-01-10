@@ -68,7 +68,7 @@ public class Driver {
          * ArrayList items in descending
          * order of their respective Volumes
          */
-        Collections.sort(list, new ShapeComparator());
+        // Collections.sort(list, new ShapeComparator());
 
         System.out.println("###");
         // Printing the newly sorted arraylist based on compare method in
